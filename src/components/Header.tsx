@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MapPin, Clock, Star } from 'lucide-react';
-import Logo from '../assets/logo.jpg'; 
+import React, { useState, useEffect } from "react";
+import { Menu, X, Phone, MapPin, Clock, Star, Sparkles } from "lucide-react";
 
 interface HeaderProps {
   onBookingClick: () => void;
@@ -15,8 +14,8 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick }) => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => {
@@ -26,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
@@ -61,18 +60,21 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick }) => {
       </div>
 
       {/* Header principal */}
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-white shadow-md'
-      }`}>
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-white shadow-md"
+        }`}
+      >
         <div className="container mx-auto px-2 sm:px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo amélioré */}
             <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="relative">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center shadow-lg">
-                  <img src={Logo} alt="Logo Beauty by Doudou" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+                  {/* Logo icône (remplace l'image locale) */}
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-full flex items-center justify-center">
                   <Star className="w-2 h-2 text-white fill-current" />
@@ -80,22 +82,24 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick }) => {
               </div>
               <div>
                 <h1 className="text-base sm:text-xl font-bold text-gray-800 leading-tight">
-                  Beauty by Doudou
+                  Éclat Beauté
                 </h1>
-                <p className="text-[10px] sm:text-xs text-gray-500">Complexe de Beauté Premium</p>
+                <p className="text-[10px] sm:text-xs text-gray-500">
+                  Complexe de Beauté Premium
+                </p>
               </div>
             </div>
 
             {/* Navigation desktop améliorée */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8">
               {[
-                { label: 'Accueil', id: 'home' },
-                { label: 'Services', id: 'services' },
-                { label: 'Galerie', id: 'gallery' },
-                { label: 'Tarifs', id: 'pricing' },
-                { label: 'À Propos', id: 'about' },
-                { label: 'Centres', id: 'locations' },
-                { label: 'Contact', id: 'contact' }
+                { label: "Accueil", id: "home" },
+                { label: "Services", id: "services" },
+                { label: "Galerie", id: "gallery" },
+                { label: "Tarifs", id: "pricing" },
+                { label: "À Propos", id: "about" },
+                { label: "Centres", id: "locations" },
+                { label: "Contact", id: "contact" },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -138,7 +142,11 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick }) => {
                 className="p-2 rounded-lg hover:bg-gray-100 transition duration-300"
                 aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
             </div>
           </div>
@@ -148,13 +156,13 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick }) => {
             <div className="lg:hidden fixed inset-0 top-[64px] sm:top-[80px] left-0 w-full h-full bg-white/95 backdrop-blur-md z-50">
               <nav className="py-8 px-4 space-y-4 w-full max-w-md mx-auto">
                 {[
-                  { label: 'Accueil', id: 'home' },
-                  { label: 'Services', id: 'services' },
-                  { label: 'Galerie', id: 'gallery' },
-                  { label: 'Tarifs', id: 'pricing' },
-                  { label: 'À Propos', id: 'about' },
-                  { label: 'Centres', id: 'locations' },
-                  { label: 'Contact', id: 'contact' }
+                  { label: "Accueil", id: "home" },
+                  { label: "Services", id: "services" },
+                  { label: "Galerie", id: "gallery" },
+                  { label: "Tarifs", id: "pricing" },
+                  { label: "À Propos", id: "about" },
+                  { label: "Centres", id: "locations" },
+                  { label: "Contact", id: "contact" },
                 ].map((item) => (
                   <button
                     key={item.id}

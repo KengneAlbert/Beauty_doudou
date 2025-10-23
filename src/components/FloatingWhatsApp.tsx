@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-import { MessageCircle, X } from 'lucide-react';
+import React, { useState } from "react";
+import { MessageCircle, X } from "lucide-react";
 
 const FloatingWhatsApp = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const whatsappNumbers = {
-    yaounde: '+237XXXXXXXXX',
-    douala: '+237XXXXXXXXX'
+    yaounde: "+237XXXXXXXXX",
+    douala: "+237XXXXXXXXX",
   };
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
   };
 
-  const sendWhatsAppMessage = (location: 'yaounde' | 'douala') => {
+  const sendWhatsAppMessage = (location: "yaounde" | "douala") => {
     const number = whatsappNumbers[location];
     const message = encodeURIComponent(
-      `Bonjour Beauty by Doudou ! Je souhaiterais prendre rendez-vous dans votre centre de ${location === 'yaounde' ? 'Yaoundé' : 'Douala'}.`
+      `Bonjour Éclat Beauté ! Je souhaiterais prendre rendez-vous dans votre centre de ${
+        location === "yaounde" ? "Yaoundé" : "Douala"
+      }.`
     );
-    window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${number}?text=${message}`, "_blank");
     setIsOpen(false);
   };
 
@@ -30,7 +32,11 @@ const FloatingWhatsApp = () => {
           onClick={toggleChat}
           className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+          {isOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <MessageCircle className="w-6 h-6" />
+          )}
         </button>
       </div>
 
@@ -48,7 +54,7 @@ const FloatingWhatsApp = () => {
 
           <div className="space-y-3">
             <button
-              onClick={() => sendWhatsAppMessage('yaounde')}
+              onClick={() => sendWhatsAppMessage("yaounde")}
               className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2"
             >
               <MessageCircle className="w-4 h-4" />
@@ -56,7 +62,7 @@ const FloatingWhatsApp = () => {
             </button>
 
             <button
-              onClick={() => sendWhatsAppMessage('douala')}
+              onClick={() => sendWhatsAppMessage("douala")}
               className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2"
             >
               <MessageCircle className="w-4 h-4" />

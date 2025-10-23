@@ -1,77 +1,73 @@
-import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
-import Img1 from '../assets/n1.jpg';
-import Img2 from '../assets/n2.jpg';
-import Img3 from '../assets/n3.jpg';
-import Img4 from '../assets/n4.jpg';
-import Img5 from '../assets/n5.jpg';
-import Img6 from '../assets/n6.jpg';
-import Img7 from '../assets/n7.jpg';
-import Img8 from '../assets/n8.jpg';
-import Img9 from '../assets/n9.jpg';
+import React, { useState } from "react";
+import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 
-
-interface GalleryProps {
-  onBookingClick: () => void;
-}
-
-const Gallery: React.FC<GalleryProps> = ({ onBookingClick }) => {
+const Gallery: React.FC<{ onBookingClick: () => void }> = ({
+  onBookingClick,
+}) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
     {
-      src: Img1,
-      alt: 'Salon moderne Beauty by Doudou',
-      category: 'Salon'
+      src: "https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Salon moderne Beauty by Doudou",
+      category: "Salon",
     },
     {
-      src: Img2,
-      alt: 'Coiffure professionnelle',
-      category: 'Coiffure'
+      src: "https://images.pexels.com/photos/3993445/pexels-photo-3993445.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Coiffure professionnelle",
+      category: "Coiffure",
     },
     {
-      src: Img3,
-      alt: 'Soins visage relaxants',
-      category: 'Soins'
+      src: "https://images.pexels.com/photos/3762466/pexels-photo-3762466.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Soins visage relaxants",
+      category: "Soins",
     },
     {
-      src: Img4,
-      alt: 'Manucure artistique',
-      category: 'Manucure'
+      src: "https://images.pexels.com/photos/3993445/pexels-photo-3993445.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Manucure artistique",
+      category: "Manucure",
     },
     {
-      src: Img5,
-      alt: 'Maquillage professionnel',
-      category: 'Maquillage'
+      src: "https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Maquillage professionnel",
+      category: "Maquillage",
     },
     {
-      src: Img6,
-      alt: 'Espace détente premium',
-      category: 'Salon'
+      src: "https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Espace détente premium",
+      category: "Salon",
     },
     {
-      src: Img7,
-      alt: 'Coiffure créative',
-      category: 'Coiffure'
+      src: "https://images.pexels.com/photos/3993441/pexels-photo-3993441.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Coiffure créative",
+      category: "Coiffure",
     },
     {
-      src: Img8,
-      alt: 'Soins du corps relaxants',
-      category: 'Soins'
+      src: "https://images.pexels.com/photos/3865670/pexels-photo-3865670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Soins du corps relaxants",
+      category: "Soins",
     },
     {
-      src: Img9,
-      alt: 'Nail art créatif',
-      category: 'Manucure'
-    }
+      src: "https://images.pexels.com/photos/3997386/pexels-photo-3997386.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Nail art créatif",
+      category: "Manucure",
+    },
   ];
 
-  const categories = ['Tous', 'Salon', 'Coiffure', 'Soins', 'Manucure', 'Maquillage'];
-  const [activeCategory, setActiveCategory] = useState('Tous');
+  const categories = [
+    "Tous",
+    "Salon",
+    "Coiffure",
+    "Soins",
+    "Manucure",
+    "Maquillage",
+  ];
+  const [activeCategory, setActiveCategory] = useState("Tous");
 
-  const filteredImages = activeCategory === 'Tous' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
+  const filteredImages =
+    activeCategory === "Tous"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeCategory);
 
   const openModal = (index: number) => {
     setSelectedImage(index);
@@ -89,7 +85,9 @@ const Gallery: React.FC<GalleryProps> = ({ onBookingClick }) => {
 
   const prevImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1);
+      setSelectedImage(
+        selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1
+      );
     }
   };
 
@@ -99,13 +97,12 @@ const Gallery: React.FC<GalleryProps> = ({ onBookingClick }) => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Camera className="w-8 h-8 text-pink-500" />
-            <h2 className="text-4xl font-bold text-gray-800">
-              Notre Galerie
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-800">Notre Galerie</h2>
           </div>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez nos réalisations et l'ambiance unique de nos centres Beauty by Doudou. 
-            Chaque image raconte une histoire de beauté et de transformation.
+            Découvrez nos réalisations et l'ambiance unique de nos centres Éclat
+            Beauté. Chaque image raconte une histoire de beauté et de
+            transformation.
           </p>
         </div>
 
@@ -117,8 +114,8 @@ const Gallery: React.FC<GalleryProps> = ({ onBookingClick }) => {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-pink-100 hover:text-pink-600'
+                  ? "bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg"
+                  : "bg-gray-100 text-gray-700 hover:bg-pink-100 hover:text-pink-600"
               }`}
             >
               {category}
@@ -141,12 +138,14 @@ const Gallery: React.FC<GalleryProps> = ({ onBookingClick }) => {
                   className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                 />
               </div>
-              
+
               {/* Overlay avec informations */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3">
-                    <p className="text-white font-semibold text-sm">{image.alt}</p>
+                    <p className="text-white font-semibold text-sm">
+                      {image.alt}
+                    </p>
                     <span className="inline-block bg-pink-500 text-white text-xs px-2 py-1 rounded-full mt-1">
                       {image.category}
                     </span>
@@ -213,10 +212,11 @@ const Gallery: React.FC<GalleryProps> = ({ onBookingClick }) => {
               Envie de vivre cette expérience ?
             </h3>
             <p className="text-gray-600 mb-6">
-              Rejoignez nos nombreuses clientes satisfaites et découvrez pourquoi Beauty by Doudou 
-              est le complexe de beauté de référence à Yaoundé et Douala.
+              Rejoignez nos nombreuses clientes satisfaites et découvrez
+              pourquoi Beauty by Doudou est le complexe de beauté de référence à
+              Yaoundé et Douala.
             </p>
-            <button 
+            <button
               onClick={onBookingClick}
               className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-4 rounded-full font-semibold hover:from-pink-600 hover:to-rose-600 transition duration-300 shadow-lg"
             >

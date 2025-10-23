@@ -1,29 +1,32 @@
-import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import React from "react";
+import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Marie Ngono',
-      city: 'Yaoundé',
+      name: "Marie Ngono",
+      city: "Yaoundé",
       rating: 5,
-      text: 'Un service exceptionnel ! L\'équipe est professionnelle et à l\'écoute. Je recommande vivement Beauty by Doudou.',
-      image: 'https://images.pexels.com/photos/3992617/pexels-photo-3992617.jpeg?auto=compress&cs=tinysrgb&w=200'
+      text: "Un service exceptionnel ! L'équipe est professionnelle et à l'écoute. Je recommande vivement Éclat Beauté.",
+      image:
+        "https://images.pexels.com/photos/3992617/pexels-photo-3992617.jpeg?auto=compress&cs=tinysrgb&w=200",
     },
     {
-      name: 'Sandrine Mballa',
-      city: 'Douala',
+      name: "Sandrine Mballa",
+      city: "Douala",
       rating: 5,
-      text: 'Depuis que j\'ai découvert ce salon, je ne vais plus ailleurs. La qualité des soins est remarquable.',
-      image: 'https://images.pexels.com/photos/3992617/pexels-photo-3992617.jpeg?auto=compress&cs=tinysrgb&w=200'
+      text: "Depuis que j'ai découvert ce salon, je ne vais plus ailleurs. La qualité des soins est remarquable chez Éclat Beauté.",
+      image:
+        "https://images.pexels.com/photos/3992617/pexels-photo-3992617.jpeg?auto=compress&cs=tinysrgb&w=200",
     },
     {
-      name: 'Aminata Diallo',
-      city: 'Yaoundé',
+      name: "Aminata Diallo",
+      city: "Yaoundé",
       rating: 5,
-      text: 'Un endroit magique où l\'on se sent chouchoutée. Les résultats dépassent toujours mes attentes.',
-      image: 'https://images.pexels.com/photos/3992617/pexels-photo-3992617.jpeg?auto=compress&cs=tinysrgb&w=200'
-    }
+      text: "Un endroit magique où l'on se sent chouchoutée. Les résultats dépassent toujours mes attentes avec Éclat Beauté.",
+      image:
+        "https://images.pexels.com/photos/3992617/pexels-photo-3992617.jpeg?auto=compress&cs=tinysrgb&w=200",
+    },
   ];
 
   return (
@@ -34,7 +37,8 @@ const Testimonials = () => {
             Témoignages Clients
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez ce que disent nos clientes sur leur expérience Beauty by Doudou.
+            Découvrez ce que disent nos clientes sur leur expérience Beauty by
+            Doudou.
           </p>
         </div>
 
@@ -47,7 +51,7 @@ const Testimonials = () => {
               <div className="absolute top-4 right-4 text-pink-200">
                 <Quote className="w-8 h-8" />
               </div>
-              
+
               <div className="flex items-center mb-6">
                 <img
                   src={testimonial.image}
@@ -55,17 +59,22 @@ const Testimonials = () => {
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
+                  <h4 className="font-semibold text-gray-800">
+                    {testimonial.name}
+                  </h4>
                   <p className="text-gray-600 text-sm">{testimonial.city}</p>
                 </div>
               </div>
-              
+
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 text-yellow-400 fill-current"
+                  />
                 ))}
               </div>
-              
+
               <p className="text-gray-700 italic">"{testimonial.text}"</p>
             </div>
           ))}
